@@ -1,9 +1,12 @@
 package notifygo
 
+// Notifier ...
 type Notifier interface {
+	// Notify ...
 	Notify(msg string) error
 }
 
+// NotifyFunc ...
 type NotifyFunc func(msg string) error
 
 func (f NotifyFunc) Notify(msg string) error {
@@ -14,6 +17,7 @@ type pipe struct {
 	ns []Notifier
 }
 
+// Pipe ...
 func Pipe(ns ...Notifier) *pipe {
 	return &pipe{ns}
 }
@@ -30,6 +34,7 @@ type group struct {
 	ncs []Notifier
 }
 
+// Group ...
 func Group(ns ...Notifier) *group {
 	return &group{ns}
 }
