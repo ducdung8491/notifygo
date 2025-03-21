@@ -1,2 +1,2 @@
 # notifygo
- Send message
+ Send message s
